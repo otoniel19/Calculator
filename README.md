@@ -1,5 +1,5 @@
 # Calculator
-A calculator written in JavaScript, a little advanced, that supports operations beyond addition, subtraction, multiplication and division, como:
+A calculator written in JavaScript, a little advanced, that supports operations beyond addition, subtraction, multiplication and division, like:
   Power: (^)
   Square root: (√)
   Percentage: (%)

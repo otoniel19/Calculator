@@ -14,7 +14,7 @@ var display = document.getElementById("display")
 
 function parseExpressionWithRegExp(expression) {
   //For π (PI), expressions like: 3π, 2π etc...
-  expression = expression.replace(/([0-9]+)[π]/g, "$1*3.14")
+  expression = expression.replace(/([0-9]+)3.14/g, "$1*3.14")
   //For expressions like: 5 (3 + 2), where there are no operators in front of the number that is outside the parentheses, in the example above it is 5. 
   expression = expression.replace(/([0-9]+)[(]/g, "$1*(")
   //Multiplication of roots (square roots)
@@ -33,6 +33,7 @@ function factorial(n) {
 }
 
 function transcribeExpression(expression) {
+  
   const converts = {
     "÷": "/",
     ":": "/",

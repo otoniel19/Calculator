@@ -36,7 +36,7 @@ function convertsExpression(expression) {
   expression = expression.replace(/([0-9]+)[(]/g, "$1*(")
   //Factorial
   expression = expression.replace(/([0-9]+)!/g, "factorial($1)")
-
+  
   return expression
 }
 
@@ -51,7 +51,7 @@ function calculate(expression) {
     result = eval(expression)
     if (result !== Infinity)
       globalExpression = result.toString()
-    else { 
+    else {
       globalExpression = globalExpression
       throw new Error(`Result is Infinity`)
     }
@@ -63,14 +63,16 @@ function calculate(expression) {
       ExpressionConverted: ${expression}
     `
     result = "";
-    console.log(errorMessage)
+    throw new Error(errorMessage)
   }
 }
 
 //This loop serves to turn the display red if the current mathematical expression is invalid, showing the user that they wrote their expression wrongly.
-function LeaveDisplayRedIfThereIsExpressionError () {
-  try { eval(convertsExpression(globalExpression));
-    display.style.color = "black"; } catch (e) {
+function LeaveDisplayRedIfThereIsExpressionError() {
+  try {
+    eval(convertsExpression(globalExpression));
+    display.style.color = "black";
+  } catch (e) {
     display.style.color = "red"
   }
   window.requestAnimationFrame(LeaveDisplayRedIfThereIsExpressionError)

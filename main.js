@@ -31,7 +31,7 @@ function convertsExpression(expression) {
   //PI (π)
   expression = expression.replace(/([0-9])π/g, `$1*3.14`).replace(/π/g, Math.PI)
   //Square Root
-  expression = expression.replace(/([0-9]+)√/g, "$1*").replace(/√([0-9]+)[.]([0-9]+)/g, "Math.sqrt($1.$2)").replace(/√([0-9]+)!/g, "Math.sqrt($1!)").replace(/√([0-9]+)/g, "Math.sqrt($1)")
+  expression = expression.replace(/([0-9]+)√/g, "$1*√").replace(/√([0-9]+)[.]([0-9]+)/g, "Math.sqrt($1.$2)").replace(/√([0-9]+)!/g, "Math.sqrt($1!)").replace(/√([0-9]+)/g, "Math.sqrt($1)")
   //Multiplication without operator, like 5(5+5) = 50
   expression = expression.replace(/([0-9]+)[(]/g, "$1*(")
   //Factorial

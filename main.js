@@ -68,12 +68,14 @@ function calculate(expression) {
 }
 
 //This loop serves to turn the display red if the current mathematical expression is invalid, showing the user that they wrote their expression wrongly.
-const LeaveDisplayRedIfThereIsExpressionError = setInterval(() => {
+function LeaveDisplayRedIfThereIsExpressionError () {
   try { eval(convertsExpression(globalExpression));
     display.style.color = "black"; } catch (e) {
     display.style.color = "red"
   }
-})
+  window.requestAnimationFrame(LeaveDisplayRedIfThereIsExpressionError)
+}
+LeaveDisplayRedIfThereIsExpressionError();
 
 var parentheses = ["(", ")"]
 var indexOfParentheses = 0
